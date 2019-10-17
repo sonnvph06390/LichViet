@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    app:cardCornerRadius="20dp"
+    android:elevation="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgr_danhngon"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:id="@+id/img_share_danhngon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:src="@drawable/btn_chiase_white" />
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:id="@+id/tv_danhngon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Nếu có càng nhiều người trong chúng ta coi trọng thức ăn, những lời chúc tụng và các bài hát hơn là tích trữ vàng, thế giới này hẳn đã vui vẻ hơn nhiều"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvTacGia"
+            android:layout_marginRight="30dp"
+            android:text="J.J.R TOLKIEN"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

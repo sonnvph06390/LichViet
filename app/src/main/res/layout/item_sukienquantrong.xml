@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/ic_sukien1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sukien_giadinh_compact" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_sukien1"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvDate_Sukien1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Thứ tư, 16 Tháng 10" />
+
+                <TextView
+                    android:id="@+id/tvTitle_Sukien1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Đám cưới" />
+
+                <TextView
+                    android:id="@+id/tvTime_Sukien1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Cả ngày" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorClouds" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/ic_sukien2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sukien_canhan_compact" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_sukien2"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvDate_Sukien2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Thứ tư, 16 Tháng 10" />
+
+                <TextView
+                    android:id="@+id/tvTitle_Sukien2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Ngày thành lập" />
+
+                <TextView
+                    android:id="@+id/tvTime_Sukien2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="6h30 - 10h30" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorClouds" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/ic_sukien3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/sukien_ngayle_compact" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_sukien3"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvDate_Sukien3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Thứ tư, 16 Tháng 10" />
+
+                <TextView
+                    android:id="@+id/tvTitle_Sukien3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Phụ nữ VN" />
+
+                <TextView
+                    android:id="@+id/tvTime_Sukien3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Thứ tư, 16 Tháng 10" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
