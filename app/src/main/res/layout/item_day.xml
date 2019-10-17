@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,6 +15,7 @@
         android:background="@drawable/bgr_in_honggio">
 
         <Button
+            android:id="@+id/btn_SoSukien"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -27,8 +31,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.014" />
 
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/i_tick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
+            app:layout_constraintStart_toEndOf="@+id/tvDayOfWeek"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.054" />
+
         <TextView
-            android:id="@+id/tvDay"
+            android:id="@+id/tvDayOfWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thứ tư"
@@ -46,7 +61,7 @@
             android:id="@+id/tvLichDuong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvDay"
+            android:layout_below="@id/tvDayOfWeek"
             android:text="16 Tháng 10"
             android:textColor="@color/colorWhite"
             android:textSize="30dp"
@@ -89,17 +104,20 @@
             app:layout_constraintVertical_bias="0.723" />
 
         <TextView
+            android:id="@+id/tvTuoiXung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvGioAm"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="7dp"
             android:text="Tuổi xung: Mậu Thìn, Nhâm Thìn, Nhâm Ngọ, Nhâm Tí"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvGioHoangDao"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintHorizontal_bias="0.228"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
+            app:layout_constraintTop_toBottomOf="@+id/tvGioAm"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvGioHoangDao"

@@ -8,9 +8,10 @@
         android:layout_gravity="center"
         android:id="@+id/img_item_tuviboitoan"
         android:src="@drawable/i_tuvi3x"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
     <TextView
+        android:textColor="@color/colorDark"
         android:id="@+id/tvTitleItemTuvi"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"

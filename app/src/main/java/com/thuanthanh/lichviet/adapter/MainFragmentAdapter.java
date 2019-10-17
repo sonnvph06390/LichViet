@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.fragment.HomeFragment;
 import com.thuanthanh.lichviet.model.DanhNgon;
+import com.thuanthanh.lichviet.model.Day;
 import com.thuanthanh.lichviet.model.TuViBoiToan;
 
 import java.util.ArrayList;
 
 import static com.thuanthanh.lichviet.fragment.HomeFragment.getDanhNgonData;
+import static com.thuanthanh.lichviet.fragment.HomeFragment.getDayData;
 import static com.thuanthanh.lichviet.fragment.HomeFragment.getTuviboitoanData;
 
 public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -24,6 +26,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private ArrayList<Object> items;
     private final int TUVIBOITOAN = 1;
     private final int DANHNGON = 2;
+    private final int DAY = 3;
+
 
 
     public MainFragmentAdapter(Context context, ArrayList<Object> items) {
@@ -48,6 +52,10 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 view = inflater.inflate(R.layout.rvc_danhngon, parent, false);
                 holder = new DanhNgonViewHolder(view);
                 break;
+            case DAY:
+                view = inflater.inflate(R.layout.rcv_item_day, parent, false);
+                holder = new DayViewHolder(view);
+                break;
             default:
                 view = inflater.inflate(R.layout.rcv_tuvi_boitoan, parent, false);
                 holder = new TuviViewHolder(view);
@@ -65,6 +73,9 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder.getItemViewType() == DANHNGON) {
             danhngonView((DanhNgonViewHolder) holder);
         }
+        if (holder.getItemViewType() == DAY) {
+            dayView((DayViewHolder) holder);
+        }
 
     }
 
@@ -80,6 +91,13 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holder.recyclerView.setAdapter(adapter);
 
     }
+    private void dayView(DayViewHolder holder) {
+        DayAdapter adapter = new DayAdapter(getDayData());
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        holder.recyclerView.setAdapter(adapter);
+
+    }
+
 
     @Override
     public int getItemCount() {
@@ -93,6 +111,9 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
         if (items.get(position) instanceof DanhNgon) {
             return DANHNGON;
+        }
+        if (items.get(position) instanceof Day) {
+            return DAY;
         }
         return -1;
     }
@@ -112,6 +133,14 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         DanhNgonViewHolder(View itemView) {
             super(itemView);
             recyclerView = (RecyclerView) itemView.findViewById(R.id.danhngon_recyclerView);
+        }
+    }
+    public class DayViewHolder extends RecyclerView.ViewHolder {
+        RecyclerView recyclerView;
+
+        DayViewHolder(View itemView) {
+            super(itemView);
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.day_recyclerView);
         }
     }
 }
