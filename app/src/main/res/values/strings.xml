@@ -3,4 +3,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hour">GIỜ</string>
+    <string name="ngay">NGÀY</string>
+    <string name="thang">THÁNG</string>
+    <string name="taosukien">Tạo sự kiện</string>
+    <string name="chiase_lichngay">Chia sẻ</string>
+    <string name="taosukien_lichngay">Tạo sự kiện</string>
+    <string name="chitiet_lichngay">Chi tiết ngày</string>
+    <string name="chonngaytot_lichngay">Chọn ngày tốt</string>
+    <string name="doingay_lichngay">Đổi ngày</string>
+    <string name="nnnx_lichngay">Ngày này năm xưa</string>
+    <string name="homnay">Hôm nay</string>
 </resources>
