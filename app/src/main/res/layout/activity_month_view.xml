@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MonthViewActivity">
+
+    <!--    <androidx.appcompat.widget.Toolbar-->
+    <!--        android:id="@+id/toolBar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="?actionBarSize"/>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lnTop"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#fff"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDuongLichTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="AAA"
+            android:textColor="#000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/lineBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/lnTop"
+        android:background="#000" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lineBottom">
+
+        <com.haibin.calendarview.CalendarLayout
+            android:id="@+id/calendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            app:calendar_content_view_id="@+id/nestedScrollView"
+            app:calendar_show_mode="both_month_week_view">
+
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:calendar_padding="10dp"
+                app:current_day_lunar_text_color="#ff0000"
+                app:current_day_text_color="#ff0000"
+                app:current_month_lunar_text_color="#CFCFCF"
+                app:current_month_text_color="#333333"
+                app:lunar_text_size="10sp"
+                app:max_year="2050"
+                app:max_year_day="31"
+                app:max_year_month="12"
+                app:min_year="2008"
+                app:min_year_day="1"
+                app:min_year_month="1"
+                app:month_view_auto_select_day="last_select_day_ignore_current"
+                app:month_view_show_mode="mode_only_current"
+                app:other_month_lunar_text_color="#e1e1e1"
+                app:other_month_text_color="#e1e1e1"
+                app:scheme_lunar_text_color="#CFCFCF"
+                app:scheme_text="假"
+                app:scheme_text_color="#333"
+                app:scheme_theme_color="#128c4b"
+                app:selected_lunar_text_color="#128c4b"
+                app:selected_text_color="#128c4b"
+                app:selected_theme_color="#80cfcfcf"
+                app:week_background="#fff"
+                app:week_bar_height="46dp"
+                app:week_line_background="#00000000"
+                app:week_line_margin="16dp"
+                app:week_start_with="sun"
+                app:week_text_size="10sp"
+                app:year_view_background="#f6f6f6"
+                app:year_view_day_text_color="#333333"
+                app:year_view_day_text_size="8sp"
+                app:year_view_month_text_color="#ff0000"
+                app:year_view_month_text_size="20sp"
+                app:year_view_scheme_color="#f17706"
+                app:year_view_week_height="0dp"
+                app:year_view_week_text_color="#666666"
+                app:year_view_week_text_size="7sp">
+
+            </com.haibin.calendarview.CalendarView>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_below="@id/calendarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="20px"
+                        android:background="@color/colorLineBottom" />
+
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDuongLich"
+                            style="@style/TextAppearance.AppCompat.Large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="aaaaaa"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tvAmLich"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="aaaaaa" />
+
+                        <View
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/colorLineBottom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="GIỜ HOÀNG ĐẠO" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvGioHoangDao"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <LinearLayout
+                            android:id="@+id/lnHoangDao"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:gravity="center_horizontal"
+                                android:text="HÀNH: Thổ"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:gravity="center_horizontal"
+                                android:text="TRỰC: Thổ"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:gravity="center_horizontal"
+                                android:text="SAO: Thổ"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_marginTop="10dp"
+                            android:layout_below="@id/lnHoangDao"
+                            android:layout_width="match_parent"
+                            android:layout_height="20px"
+                            android:background="@color/colorLineBottom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="SỰ KIỆN"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginLeft="20dp"
+                            android:text="Chưa thêm sự kiện nào"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginLeft="20dp"
+                            android:text="Hãy nhấn để thêm sự kiện"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="20px"
+                            android:background="@color/colorLineBottom" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </com.haibin.calendarview.CalendarLayout>
+    </LinearLayout>
+</RelativeLayout>
