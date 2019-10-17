@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:textColor="@color/colorDark"
+        android:textSize="20dp"
+        android:id="@+id/tvTuviboitoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Tử vi bói toán"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="@color/colorBlue"
+        android:id="@+id/tvXemtatca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@id/tvTuviboitoan"
+        android:padding="10dp"
+        android:text="Xem tất cả"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/tvTuviboitoan"
+        android:id="@+id/inner_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

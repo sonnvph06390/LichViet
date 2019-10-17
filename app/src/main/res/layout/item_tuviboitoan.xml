@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/img_item_tuviboitoan"
+        android:src="@drawable/i_tuvi3x"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <TextView
+        android:textColor="@color/colorDark"
+        android:id="@+id/tvTitleItemTuvi"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Tử vi hằng ngày"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
