@@ -14,4 +14,21 @@
     <string name="doingay_lichngay">Đổi ngày</string>
     <string name="nnnx_lichngay">Ngày này năm xưa</string>
     <string name="homnay">Hôm nay</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="sukien">Sự kiện</string>
+    <string name="viechi">Việc hỷ</string>
+    <string name="ngaygio">Ngày giỗ</string>
+    <string name="canhan">Cá nhân</string>
+    <string name="giadinh">Gia đình</string>
+    <string name="congviec">Công việc</string>
+    <string name="sinhnhat">Sinh nhật</string>
+    <string name="henho">Hẹn hò</string>
+    <string name="kiniem">Kỉ niệm</string>
+    <string name="khac">Khác</string>
+    <string name="ngayram">Ngày Rằm, Mùng Một</string>
+    <string name="ngayle">Ngày Lễ, Kỉ niệm Việt Nam</string>
+    <string name="mail">Tài khoản</string>
+    <string name="chuataosukien">Chưa tạo sự kiện nào</string>
+    <string name="haytaosukien">Hãy tạo sự kiện mới bằng cách nhấn vào nút (+) phía trên cùng góc bên phải</string>
 </resources>
