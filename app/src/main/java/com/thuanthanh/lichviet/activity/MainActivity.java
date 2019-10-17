@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.fragment.HomeFragment;
+import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
 
 public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomnavigation;
@@ -41,6 +42,9 @@ public class MainActivity extends BaseActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_vn_calendar:
+                    fragment = new LichVN_Fragment();
+                    loadFragment(fragment);
+                    return  true;
                 case R.id.nav_event:
                 case R.id.nav_tuvi:
 

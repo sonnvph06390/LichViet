@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <dimen name="lichvn_text">15sp</dimen>
+    <dimen name="margin_left_min">8dp</dimen>
+    <dimen name="margin_2">16dp</dimen>
+    <dimen name="margin_3">24dp</dimen>
+    <dimen name="margin_4">32dp</dimen>
+    <dimen name="padding_min">4dp</dimen>
+    <dimen name="fab_size">40dp</dimen>
+    <dimen name="text_ngay">120dp</dimen>
+    <dimen name="text_thu">20dp</dimen>
+    <dimen name="text_time_ngayam_thangam">30dp</dimen>
+    <dimen name="text_bottom_sheet">24sp</dimen>
+
+</resources>

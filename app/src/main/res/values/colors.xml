@@ -7,4 +7,9 @@
     <color name="colorBlue">#3742fa</color>
     <color name="colorDark">#000000</color>
     <color name="colorClouds">#ecf0f1</color>
+    <color name="white">#FFF</color>
+    <color name="text">#262628</color>
+    <color name="hex_white">#66FFFFFF</color>
+    <color name="blue_text">#012e7e</color>
+    <color name="black">#000</color>
 </resources>
