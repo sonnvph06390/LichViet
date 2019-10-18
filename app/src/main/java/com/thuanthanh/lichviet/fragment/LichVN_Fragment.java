@@ -29,6 +29,7 @@ import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.swipetouch.OnSwipeTouchListener;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -52,6 +53,7 @@ public class LichVN_Fragment extends BaseFragment {
     private TextView tvThongtinnam;
     private Guideline guideline2;
     private LinearLayout layout_chonngay;
+    private TextView tvhomay;
     private TextView tvThangnam;
     private ImageButton btn_image;
     private TextView tvNgayhomnay;
@@ -80,15 +82,7 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateMonth);
-        final SimpleDateFormat day = new SimpleDateFormat(dateformat);
-        SimpleDateFormat week = new SimpleDateFormat(dayofweek);
-        String format = simpleDateFormat.format(new Date());
-        final String dayformat = day.format(new Date());
-        String a = week.format(new Date());
-        tvThangnam.setText(format);
-        tvNgayhomnay.setText(dayformat);
-        tvThu.setText(a);
+        final Calendar c = Calendar.getInstance();
 
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
@@ -104,11 +98,25 @@ public class LichVN_Fragment extends BaseFragment {
             public void onSwipeLeft() {
                 randomImage();
                 getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                c.add(Calendar.DAY_OF_YEAR, 1);
+                String next_moth = format.format(c.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
             }
 
             public void onSwipeBottom() {
                 randomImage();
                 getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd - MM - yyyy - EEEE");
+                c.add(Calendar.MONTH, -1);
+                String next_moth = format.format(c.getTime());
+                Toast.makeText(getContext(), next_moth, Toast.LENGTH_SHORT).show();
+                layoutWeather.setVisibility(View.GONE);
             }
         });
 
@@ -160,6 +168,7 @@ public class LichVN_Fragment extends BaseFragment {
         tvCadao = view.findViewById(R.id.tv_cadao);
         tvNguon = view.findViewById(R.id.tv_nguon);
         constraintLayout = view.findViewById(R.id.const_layout);
+        tvhomay = view.findViewById(R.id.tv_homay);
     }
 
     private void initDialog(BottomSheetDialog dialog) {
@@ -194,6 +203,16 @@ public class LichVN_Fragment extends BaseFragment {
     private void getTime() {
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         tvGio.setText(currentTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateMonth);
+        final SimpleDateFormat day = new SimpleDateFormat(dateformat);
+        SimpleDateFormat week = new SimpleDateFormat(dayofweek);
+        String format = simpleDateFormat.format(new Date());
+        final String dayformat = day.format(new Date());
+        String a = week.format(new Date());
+        tvThangnam.setText(format);
+        tvNgayhomnay.setText(dayformat);
+        tvThu.setText(a);
+        checkbutton();
     }
 
     private int getImage() {
@@ -244,6 +263,20 @@ public class LichVN_Fragment extends BaseFragment {
                 Toast.makeText(getContext(), "Ngày này năm xưa", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void checkbutton(){
+        SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
+        String currendate = formar.format(new Date());
+        String day = tvNgayhomnay.getText().toString();
+        String thang = tvThangnam.getText().toString();
+        String daythang = day+ " " + "-" + " " +thang;
+        if (currendate.equals(daythang)){
+            tvhomay.setVisibility(View.GONE);
+            layoutWeather.setVisibility(View.VISIBLE);
+        }else {
+            tvhomay.setVisibility(View.VISIBLE);
+        }
     }
 
 }
