@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,12 +14,16 @@ import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.fragment.HomeFragment;
 import com.thuanthanh.lichviet.model.DanhNgon;
 import com.thuanthanh.lichviet.model.Day;
+import com.thuanthanh.lichviet.model.DoiNgayTaoSukien;
+import com.thuanthanh.lichviet.model.SuKienQuanTrong;
 import com.thuanthanh.lichviet.model.TuViBoiToan;
 
 import java.util.ArrayList;
 
 import static com.thuanthanh.lichviet.fragment.HomeFragment.getDanhNgonData;
 import static com.thuanthanh.lichviet.fragment.HomeFragment.getDayData;
+import static com.thuanthanh.lichviet.fragment.HomeFragment.getDoiNgayTaoSuKienData;
+import static com.thuanthanh.lichviet.fragment.HomeFragment.getSuKienQuanTrongData;
 import static com.thuanthanh.lichviet.fragment.HomeFragment.getTuviboitoanData;
 
 public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -27,7 +32,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private final int TUVIBOITOAN = 1;
     private final int DANHNGON = 2;
     private final int DAY = 3;
-
+    private final int DOINGAYTAOSUKIEN = 4;
+    private final int SUKIENQUANTRONG = 5;
 
 
     public MainFragmentAdapter(Context context, ArrayList<Object> items) {
@@ -56,6 +62,14 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 view = inflater.inflate(R.layout.rcv_item_day, parent, false);
                 holder = new DayViewHolder(view);
                 break;
+            case DOINGAYTAOSUKIEN:
+                view = inflater.inflate(R.layout.rcv_doingay_taosukien, parent, false);
+                holder = new DoiNgayTaoSuKienHolder(view);
+                break;
+            case SUKIENQUANTRONG:
+                view = inflater.inflate(R.layout.rcv_sukienquantrong, parent, false);
+                holder = new SuKienQuanTrongHolder(view);
+                break;
             default:
                 view = inflater.inflate(R.layout.rcv_tuvi_boitoan, parent, false);
                 holder = new TuviViewHolder(view);
@@ -76,6 +90,12 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder.getItemViewType() == DAY) {
             dayView((DayViewHolder) holder);
         }
+        if (holder.getItemViewType() == DOINGAYTAOSUKIEN) {
+            doiNgayTaoSuKienView((DoiNgayTaoSuKienHolder) holder);
+        }
+        if (holder.getItemViewType() == SUKIENQUANTRONG) {
+            suKienQuanTrongView((SuKienQuanTrongHolder) holder);
+        }
 
     }
 
@@ -91,11 +111,23 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holder.recyclerView.setAdapter(adapter);
 
     }
+
     private void dayView(DayViewHolder holder) {
         DayAdapter adapter = new DayAdapter(getDayData());
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recyclerView.setAdapter(adapter);
 
+    }
+
+    private void doiNgayTaoSuKienView(DoiNgayTaoSuKienHolder holder) {
+        DoiNgayTaoSuKienAdapter adapter = new DoiNgayTaoSuKienAdapter(getDoiNgayTaoSuKienData());
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        holder.recyclerView.setAdapter(adapter);
+    }
+    private void suKienQuanTrongView(SuKienQuanTrongHolder holder) {
+        SuKienQuanTrongAdapter adapter = new SuKienQuanTrongAdapter(getSuKienQuanTrongData());
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        holder.recyclerView.setAdapter(adapter);
     }
 
 
@@ -115,6 +147,13 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (items.get(position) instanceof Day) {
             return DAY;
         }
+        if (items.get(position) instanceof DoiNgayTaoSukien) {
+            return DOINGAYTAOSUKIEN;
+        }
+        if (items.get(position) instanceof SuKienQuanTrong) {
+            return SUKIENQUANTRONG;
+        }
+
         return -1;
     }
 
@@ -135,6 +174,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             recyclerView = (RecyclerView) itemView.findViewById(R.id.danhngon_recyclerView);
         }
     }
+
     public class DayViewHolder extends RecyclerView.ViewHolder {
         RecyclerView recyclerView;
 
@@ -143,4 +183,24 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             recyclerView = (RecyclerView) itemView.findViewById(R.id.day_recyclerView);
         }
     }
+
+    public class DoiNgayTaoSuKienHolder extends RecyclerView.ViewHolder {
+
+        RecyclerView recyclerView;
+
+        DoiNgayTaoSuKienHolder(View itemView) {
+            super(itemView);
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.doingay_taosukien_rcv);
+        }
+    }
+    public class SuKienQuanTrongHolder extends RecyclerView.ViewHolder {
+
+        RecyclerView recyclerView;
+
+        SuKienQuanTrongHolder(View itemView) {
+            super(itemView);
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.sukienquantrong_recyclerView);
+        }
+    }
+
 }
