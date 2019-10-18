@@ -35,7 +35,7 @@ public class Tuvi2019Activity extends AppCompatActivity {
                 }
             });
         }
-//
+
     }
 
     private void anhxa() {

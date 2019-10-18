@@ -19,27 +19,23 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-
-
         <activity android:name=".activity.Tuvi2019Activity"></activity>
 
 
         <activity
-            android:theme="@style/AppThemeNoBar"
-            android:name=".activity.MonthViewActivity">
+            android:name=".activity.MonthViewActivity"
+            android:theme="@style/AppThemeNoBar">
 
         </activity>
 
-
-
         <activity android:name=".activity.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
