@@ -19,6 +19,8 @@ import com.thuanthanh.lichviet.activity.MonthViewActivity;
 import com.thuanthanh.lichviet.adapter.MainFragmentAdapter;
 import com.thuanthanh.lichviet.model.DanhNgon;
 import com.thuanthanh.lichviet.model.Day;
+import com.thuanthanh.lichviet.model.DoiNgayTaoSukien;
+import com.thuanthanh.lichviet.model.SuKienQuanTrong;
 import com.thuanthanh.lichviet.model.TuViBoiToan;
 
 import java.util.ArrayList;
@@ -51,7 +53,9 @@ public class HomeFragment extends BaseFragment {
 
     private ArrayList<Object> getObject() {
         objects.add(getDayData().get(0));
+        objects.add(getDoiNgayTaoSuKienData().get(0));
         objects.add(getTuviboitoanData().get(0));
+        objects.add(getSuKienQuanTrongData().get(0));
         objects.add(getDanhNgonData().get(0));
         return objects;
     }
@@ -72,7 +76,6 @@ public class HomeFragment extends BaseFragment {
         tuViBoiToans.add(new TuViBoiToan(R.drawable.i_xemsao, "Xem Sao"));
         tuViBoiToans.add(new TuViBoiToan(R.drawable.i_xemngaytot, "Xem Ngày Tốt"));
         tuViBoiToans.add(new TuViBoiToan(R.drawable.i_doingay, "Đổi Ngày"));
-
         return tuViBoiToans;
 
     }
@@ -88,6 +91,20 @@ public class HomeFragment extends BaseFragment {
         ArrayList<DanhNgon> danhNgons = new ArrayList<>();
         danhNgons.add(new DanhNgon(R.drawable.btn_chiase_white, "Khong co gi quy hon doc lap tu do", "J.J.R"));
         return danhNgons;
+
+    }
+    public static ArrayList<DoiNgayTaoSukien> getDoiNgayTaoSuKienData() {
+        ArrayList<DoiNgayTaoSukien> doiNgayTaoSukiens = new ArrayList<>();
+        doiNgayTaoSukiens.add(new DoiNgayTaoSukien("Đổi ngày","Tạo sự kiện","Xem ngày tốt"));
+        return doiNgayTaoSukiens;
+
+    }
+    public static ArrayList<SuKienQuanTrong> getSuKienQuanTrongData() {
+        ArrayList<SuKienQuanTrong> suKienQuanTrongs = new ArrayList<>();
+        suKienQuanTrongs.add(new SuKienQuanTrong(R.drawable.sukien_giadinh_compact,"Thứ 6, 18 Tháng 10","Đám cưới","5H - 10H",
+                R.drawable.sukien_viechy_compact,"Thứ 6, 18 Tháng 10","Đám cưới","5H - 10H",
+                R.drawable.sukien_canhan_compact,"Thứ 6, 18 Tháng 10","Đám cưới","5H - 10H"));
+        return suKienQuanTrongs;
 
     }
 
