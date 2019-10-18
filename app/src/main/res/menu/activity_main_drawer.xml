@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Sự kiện">
         <menu>
-            <item android:id="@+id/nav_sukien"
-                android:icon="@drawable/sukien_ngaygio_compact"
+            <item
+                android:id="@+id/nav_sukien"
+                android:icon="@drawable/sukien_viechy_compact"
                 android:title="@string/sukien" />
         </menu>
     </item>
@@ -13,39 +15,39 @@
         <menu>
             <item
                 android:id="@+id/nav_viechy"
-                android:icon="@drawable/sukien_viechy"
+                android:icon="@drawable/sukien_viechy_compact"
                 android:title="@string/viechi" />
             <item
                 android:id="@+id/nav_ngaygio"
-                android:icon="@drawable/sukien_ngaygio"
+                android:icon="@drawable/sukien_ngaygio_compact"
                 android:title="@string/ngaygio" />
             <item
                 android:id="@+id/nav_canhan"
-                android:icon="@drawable/sukien_canhan"
+                android:icon="@drawable/sukien_canhan_compact"
                 android:title="@string/canhan" />
             <item
                 android:id="@+id/nav_giadinh"
-                android:icon="@drawable/sukien_giadinh"
+                android:icon="@drawable/sukien_giadinh_compact"
                 android:title="@string/giadinh" />
             <item
                 android:id="@+id/nav_congviec"
-                android:icon="@drawable/sukien_congviec"
+                android:icon="@drawable/sukien_congviec_compact"
                 android:title="@string/congviec" />
             <item
                 android:id="@+id/nav_sinhnhat"
-                android:icon="@drawable/sukien_sinhnhat"
+                android:icon="@drawable/sukien_sinhnhat_compact"
                 android:title="@string/sinhnhat" />
             <item
                 android:id="@+id/nav_henho"
-                android:icon="@drawable/sukien_henho"
+                android:icon="@drawable/sukien_henho_compact"
                 android:title="@string/henho" />
             <item
                 android:id="@+id/nav_kiniem"
-                android:icon="@drawable/sukien_kyniem"
+                android:icon="@drawable/sukien_kyniem_compact"
                 android:title="@string/kiniem" />
             <item
                 android:id="@+id/nav_khac"
-                android:icon="@drawable/sukien_khac"
+                android:icon="@drawable/sukien_khac_compact"
                 android:title="@string/khac" />
 
         </menu>
@@ -55,26 +57,23 @@
         <menu>
             <item
                 android:id="@+id/nav_ngayram"
-                android:icon="@drawable/sukien_ngayle"
+                android:icon="@drawable/sukien_ngayle_compact"
                 android:title="@string/ngayram" />
             <item
                 android:id="@+id/nav_ngayle"
-                android:icon="@drawable/sukien_ngayle"
+                android:icon="@drawable/sukien_ngayle_compact"
                 android:title="@string/ngayle" />
         </menu>
     </item>
 
-    <item android:title="ĐỒNG BỘ LỊCH FACEBOOK/GOOGLE"
-        >
+    <item android:title="ĐỒNG BỘ LỊCH FACEBOOK/GOOGLE">
         <menu>
             <item
                 android:id="@+id/nav_mail"
-                android:icon="@drawable/sukien_ngayle"
+                android:icon="@drawable/ic_person_add_white"
                 android:title="@string/mail" />
         </menu>
     </item>
-
-
 
 
 </menu>

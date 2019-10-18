@@ -16,7 +16,7 @@
             android:name=".activity.VietSuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SuKienActivity"
+            android:name=".fragment.SuKiennFragment"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
