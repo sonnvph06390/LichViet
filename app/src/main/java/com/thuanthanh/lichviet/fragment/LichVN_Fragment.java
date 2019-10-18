@@ -71,6 +71,7 @@ public class LichVN_Fragment extends BaseFragment {
     String dateformat = "dd";
     String dateMonth = "MM - yyy";
     String dayofweek = "EEEE";
+    final Calendar c = Calendar.getInstance();
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -82,17 +83,35 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
-        final Calendar c = Calendar.getInstance();
 
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
                 getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                c.add(Calendar.MONTH, 1);
+                String next_moth = format.format(c.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
+                layoutWeather.setVisibility(View.GONE);
             }
 
             public void onSwipeRight() {
                 randomImage();
                 getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                c.add(Calendar.DAY_OF_YEAR, -1);
+                String next_moth = format.format(c.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
             }
 
             public void onSwipeLeft() {
@@ -112,10 +131,15 @@ public class LichVN_Fragment extends BaseFragment {
             public void onSwipeBottom() {
                 randomImage();
                 getTime();
-                SimpleDateFormat format = new SimpleDateFormat("dd - MM - yyyy - EEEE");
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 c.add(Calendar.MONTH, -1);
                 String next_moth = format.format(c.getTime());
-                Toast.makeText(getContext(), next_moth, Toast.LENGTH_SHORT).show();
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
                 layoutWeather.setVisibility(View.GONE);
             }
         });
@@ -139,6 +163,14 @@ public class LichVN_Fragment extends BaseFragment {
                 dialog.show();
             }
         });
+
+        tvhomay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset();
+            }
+        });
+
         return view;
     }
 
@@ -278,5 +310,12 @@ public class LichVN_Fragment extends BaseFragment {
             tvhomay.setVisibility(View.VISIBLE);
         }
     }
+
+    private void reset(){
+        getTime();
+    }
+
+
+
 
 }
