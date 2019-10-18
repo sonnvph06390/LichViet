@@ -21,7 +21,11 @@ import com.thuanthanh.lichviet.R;
 
 import com.thuanthanh.lichviet.fragment.HomeFragment;
 import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
+
 import com.thuanthanh.lichviet.fragment.TuviFragment;
+
+import com.thuanthanh.lichviet.fragment.SuKiennFragment;
+
 
 public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomnavigation;
@@ -54,7 +58,9 @@ public class MainActivity extends BaseActivity {
                     loadFragment( fragment);
                     return  true;
                 case R.id.nav_event:
-
+                    fragment = new SuKiennFragment();
+                    loadFragment(fragment);
+                    return  true;
                 case R.id.nav_tuvi:
                     fragment=new TuviFragment();
                     loadFragment(fragment);
