@@ -71,8 +71,10 @@ public class LichVN_Fragment extends BaseFragment {
     private LinearLayout chonngaytot;
     private LinearLayout doingay;
     private LinearLayout nnnx;
+
     private Button btn_data_set;
     Calendar a = null;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
@@ -89,9 +91,12 @@ public class LichVN_Fragment extends BaseFragment {
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
+
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 a.add(Calendar.MONTH, 1);
                 String next_moth = format.format(a.getTime());
+
+
                 String[] chuoi = next_moth.split("/");
                 tvNgayhomnay.setText(chuoi[0]);
                 tvThangnam.setText(chuoi[1]);
@@ -132,7 +137,6 @@ public class LichVN_Fragment extends BaseFragment {
 
             public void onSwipeBottom() {
                 randomImage();
-
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 a.add(Calendar.MONTH, -1);
                 String next_moth = format.format(a.getTime());
@@ -185,6 +189,7 @@ public class LichVN_Fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 getTime();
+                reset();
             }
         });
 
@@ -337,5 +342,12 @@ public class LichVN_Fragment extends BaseFragment {
         return null;
 
     }
+
+    private void reset(){
+        getTime();
+    }
+
+
+
 
 }
