@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,7 +30,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.swipetouch.OnSwipeTouchListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -68,12 +73,14 @@ public class LichVN_Fragment extends BaseFragment {
     private LinearLayout chonngaytot;
     private LinearLayout doingay;
     private LinearLayout nnnx;
+    private Button btn_data_set;
     String dateformat = "dd";
     String dateMonth = "MM - yyy";
     String dayofweek = "EEEE";
     final Calendar c = Calendar.getInstance();
+    final int sophantu = 0;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
@@ -83,11 +90,24 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss EEEE");
+        String dateStart = format.format(new Date());
+        String dateStop = format.format(new Date());
+        Date d1 = null;
+        Date d2 = null;
+        try {
+            d1 = format.parse(dateStart);
+            d2 = format.parse(dateStop);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long timeadj = 24 * 60 * 60 * 1000;
+        Date diff = new Date(d1.getTime() + timeadj);
+        String nd = format.format(diff);
 
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
-                getTime();
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 c.add(Calendar.MONTH, 1);
                 String next_moth = format.format(c.getTime());
@@ -102,7 +122,6 @@ public class LichVN_Fragment extends BaseFragment {
 
             public void onSwipeRight() {
                 randomImage();
-                getTime();
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 c.add(Calendar.DAY_OF_YEAR, -1);
                 String next_moth = format.format(c.getTime());
@@ -116,7 +135,6 @@ public class LichVN_Fragment extends BaseFragment {
 
             public void onSwipeLeft() {
                 randomImage();
-                getTime();
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 c.add(Calendar.DAY_OF_YEAR, 1);
                 String next_moth = format.format(c.getTime());
@@ -126,11 +144,24 @@ public class LichVN_Fragment extends BaseFragment {
                 tvGio.setText(chuoi[2]);
                 tvThu.setText(chuoi[4]);
                 checkbutton();
+
+                //cộng thêm một ngày
+//                SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss EEEE");
+//                String dateStart = format.format(new Date());
+//                Date d1 = null;
+//                try {
+//                    d1 = format.parse(dateStart);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                long timeadj = 24*60*60*1000;
+//                Date diff = new Date(d1.getTime() + timeadj);
+//                String nd = format.format(diff);
+//                Toast.makeText(getContext(), nd, Toast.LENGTH_SHORT).show();
             }
 
             public void onSwipeBottom() {
                 randomImage();
-                getTime();
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 c.add(Calendar.MONTH, -1);
                 String next_moth = format.format(c.getTime());
@@ -158,9 +189,24 @@ public class LichVN_Fragment extends BaseFragment {
         layout_chonngay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog dialog = new BottomSheetDialog(getContext());
+                final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
                 dialog.setContentView(R.layout.chonngay);
                 dialog.show();
+                btn_data_set = dialog.findViewById(R.id.btn_date_set);
+                btn_data_set.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DatePicker picker = dialog.findViewById(R.id.date_picker);
+                        String day = picker.getDayOfMonth()+"";
+                        String thang = picker.getMonth()+"";
+                        String nam = picker.getYear()+"";
+                        String namthang = thang + " " + "-" + " " +nam;
+                        tvNgayhomnay.setText(day);
+                        tvThangnam.setText(namthang);
+                        checkbutton();
+                        dialog.dismiss();
+                    }
+                });
             }
         });
 
@@ -235,9 +281,9 @@ public class LichVN_Fragment extends BaseFragment {
     private void getTime() {
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         tvGio.setText(currentTime);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateMonth);
-        final SimpleDateFormat day = new SimpleDateFormat(dateformat);
-        SimpleDateFormat week = new SimpleDateFormat(dayofweek);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM - yyyy");
+        final SimpleDateFormat day = new SimpleDateFormat("dd");
+        SimpleDateFormat week = new SimpleDateFormat("EEEE");
         String format = simpleDateFormat.format(new Date());
         final String dayformat = day.format(new Date());
         String a = week.format(new Date());
@@ -253,7 +299,7 @@ public class LichVN_Fragment extends BaseFragment {
         return images[rand.nextInt(images.length)];
     }
 
-    private void onclickDialog(){
+    private void onclickDialog() {
         taosukien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -297,25 +343,36 @@ public class LichVN_Fragment extends BaseFragment {
         });
     }
 
-    private void checkbutton(){
+    private void checkbutton() {
         SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
         String currendate = formar.format(new Date());
         String day = tvNgayhomnay.getText().toString();
         String thang = tvThangnam.getText().toString();
-        String daythang = day+ " " + "-" + " " +thang;
-        if (currendate.equals(daythang)){
+        String daythang = day + " " + "-" + " " + thang;
+        if (currendate.equals(daythang)) {
             tvhomay.setVisibility(View.GONE);
             layoutWeather.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             tvhomay.setVisibility(View.VISIBLE);
         }
     }
 
-    private void reset(){
-        getTime();
+    private boolean getcalendar() {
+        SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
+        String currendate = formar.format(new Date());
+        String day = tvNgayhomnay.getText().toString();
+        String thang = tvThangnam.getText().toString();
+        String daythang = day + " " + "-" + " " + thang;
+        if (currendate.equals(daythang)) {
+            return false;
+        }
+        return true;
     }
 
-
+    private void reset() {
+        getTime();
+        Calendar.getInstance();
+    }
 
 
 }
