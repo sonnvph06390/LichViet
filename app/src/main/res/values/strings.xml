@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
     <string name="hour">GIỜ</string>
     <string name="ngay">NGÀY</string>
     <string name="thang">THÁNG</string>
@@ -32,6 +33,7 @@
     <string name="mail">Tài khoản</string>
     <string name="chuataosukien">Chưa tạo sự kiện nào</string>
     <string name="haytaosukien">Hãy tạo sự kiện mới bằng cách nhấn vào nút (+) phía trên cùng góc bên phải</string>
+
 
     <string-array name="english_week_string_array">
         <item>Sun</item>
@@ -233,6 +235,7 @@
     <string name="sat">Sat</string>
 
     <string-array name="week_string_array">
+
         <item>Sun</item>
         <item>Mon</item>
         <item>Tue</item>
@@ -240,6 +243,15 @@
         <item>Thu</item>
         <item>Fri</item>
         <item>Sat</item>
+
+        <item>CN</item>
+        <item>Hai</item>
+        <item>Ba</item>
+        <item>Tư</item>
+        <item>Năm</item>
+        <item>Sáu</item>
+        <item>Bảy</item>
+
     </string-array>
 
     <string-array name="year_view_week_string_array">
