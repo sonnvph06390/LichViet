@@ -18,13 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.TaoSuKienActivity;
 import com.thuanthanh.lichviet.activity.VietSuKienActivity;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -38,17 +38,21 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.su_kien_fragment, container, false);
 
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                startActivity(new Intent(activity, TaoSuKienActivity.class));
+            }
+        });
 
         TextView textView = (TextView) view.findViewById(R.id.tvthangnam);
         SimpleDateFormat sdf = new SimpleDateFormat("MM - yyyy");
         String aaa = sdf.format(new Date());
-        textView.setText("Thang\t"+aaa);
-
-
+        textView.setText("Thang\t" + aaa);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_main);
-
-
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -63,7 +67,6 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
 
         CalendarView simpleCalendarView = (CalendarView) view.findViewById(R.id.simpleCalendarView);
 
-
         return view;
 
     }
@@ -74,16 +77,6 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Lịch cá nhân");
     }
-
-//    @Override
-//    public void onBackPressed() {
-//
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBac();
-//        }
-//    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -123,7 +116,7 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
 
             case R.id.nav_viechy:
 
-                swapFragment();
+                swapActivity();
 
                 break;
 
@@ -181,10 +174,12 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
 
     }
 
-    private void swapFragment() {
+    private void swapActivity() {
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         startActivity(new Intent(activity, VietSuKienActivity.class));
 
     }
+
+
 }

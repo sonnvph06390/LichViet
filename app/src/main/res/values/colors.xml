@@ -31,4 +31,6 @@
 
     <color name="with">#FFFFFF</color>
 
+    <color name="colorGray">#e6ebfc</color>
+    <color name="colorLightBlue">#0877c2</color>
 </resources>
