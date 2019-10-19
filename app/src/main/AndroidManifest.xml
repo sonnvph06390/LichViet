@@ -16,9 +16,12 @@
         <activity
             android:name=".activity.SuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MonthViewActivity">
+        <activity
+            android:theme="@style/AppThemeNoBar"
+            android:name=".activity.MonthViewActivity">
 
         </activity>
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

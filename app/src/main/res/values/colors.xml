@@ -19,4 +19,9 @@
     <color name="solar_background">#009988</color>
     <color name="colorLineBottom">#E4E4E4</color>
 
+
+    <color name="colorPrimary1">#008577</color>
+    <color name="colorPrimaryDark2">#00574B</color>
+    <color name="colorAccent3">#D81B60</color>
+
 </resources>
