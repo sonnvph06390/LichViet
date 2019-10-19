@@ -1,8 +1,12 @@
 package com.thuanthanh.lichviet.activity;
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -24,6 +28,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomnavigation = findViewById(R.id.bottom_navigation);
+        int mScreenWidth = getWindowManager().getDefaultDisplay().getWidth();
+        int mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();
+        View view = getLayoutInflater().inflate(R.layout.activity_main, null);
+        setContentView(view, new ViewGroup.LayoutParams(mScreenWidth, mScreenHeight));
         bottomnavigation.setOnNavigationItemSelectedListener(navListener);
         loadFragment(new HomeFragment());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -32,6 +40,7 @@ public class MainActivity extends BaseActivity {
         }
 
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -44,8 +53,9 @@ public class MainActivity extends BaseActivity {
                 case R.id.nav_vn_calendar:
                     fragment = new LichVN_Fragment();
                     loadFragment(fragment);
-                    return  true;
+                    return true;
                 case R.id.nav_event:
+
                 case R.id.nav_tuvi:
 
             }
@@ -56,8 +66,10 @@ public class MainActivity extends BaseActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
-     //   transaction.addToBackStack(null);
+        //   transaction.addToBackStack(null);
         transaction.commit();
 
     }
+
+
 }
