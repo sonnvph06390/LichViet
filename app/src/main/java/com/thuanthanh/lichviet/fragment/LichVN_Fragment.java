@@ -31,7 +31,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.swipetouch.OnSwipeTouchListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -71,10 +74,8 @@ public class LichVN_Fragment extends BaseFragment {
     private LinearLayout chonngaytot;
     private LinearLayout doingay;
     private LinearLayout nnnx;
-
     private Button btn_data_set;
     Calendar a = null;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
@@ -86,17 +87,12 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
-
-
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
-
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 a.add(Calendar.MONTH, 1);
                 String next_moth = format.format(a.getTime());
-
-
                 String[] chuoi = next_moth.split("/");
                 tvNgayhomnay.setText(chuoi[0]);
                 tvThangnam.setText(chuoi[1]);
@@ -121,12 +117,9 @@ public class LichVN_Fragment extends BaseFragment {
 
             public void onSwipeLeft() {
                 randomImage();
-
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
                 a.add(Calendar.DAY_OF_YEAR, 1);
                 String next_moth = format.format(a.getTime());
-
-
                 String[] chuoi = next_moth.split("/");
                 tvNgayhomnay.setText(chuoi[0]);
                 tvThangnam.setText(chuoi[1]);
@@ -172,10 +165,10 @@ public class LichVN_Fragment extends BaseFragment {
                     @Override
                     public void onClick(View v) {
                         DatePicker picker = dialog.findViewById(R.id.date_picker);
-                        String day = picker.getDayOfMonth() + "";
-                        String thang = picker.getMonth() + "";
-                        String nam = picker.getYear() + "";
-                        String namthang = thang + " " + "-" + " " + nam;
+                        String day = picker.getDayOfMonth()+"";
+                        String thang = picker.getMonth()+"";
+                        String nam = picker.getYear()+"";
+                        String namthang = thang + " " + "-" + " " +nam;
                         tvNgayhomnay.setText(day);
                         tvThangnam.setText(namthang);
                         checkbutton();
@@ -189,7 +182,6 @@ public class LichVN_Fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 getTime();
-                reset();
             }
         });
 
@@ -257,11 +249,9 @@ public class LichVN_Fragment extends BaseFragment {
     private void getTime() {
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         tvGio.setText(currentTime);
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM - yyyy");
         final SimpleDateFormat day = new SimpleDateFormat("dd");
         SimpleDateFormat week = new SimpleDateFormat("EEEE");
-
         String format = simpleDateFormat.format(new Date());
         final String dayformat = day.format(new Date());
         String a = week.format(new Date());
@@ -322,14 +312,12 @@ public class LichVN_Fragment extends BaseFragment {
         });
     }
 
-
     private Calendar checkbutton() {
 
         SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
         String currendate = formar.format(new Date());
         String day = tvNgayhomnay.getText().toString();
         String thang = tvThangnam.getText().toString();
-
         String daythang = day + " " + "-" + " " + thang;
         if (currendate.equals(daythang)) {
             tvhomay.setVisibility(View.GONE);
@@ -342,12 +330,7 @@ public class LichVN_Fragment extends BaseFragment {
         return null;
 
     }
-
-    private void reset(){
-        getTime();
-    }
-
-
+    
 
 
 }
