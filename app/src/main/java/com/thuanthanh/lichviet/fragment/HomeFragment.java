@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -95,5 +96,4 @@ public class HomeFragment extends BaseFragment {
         return suKienQuanTrongs;
 
     }
-
 }
