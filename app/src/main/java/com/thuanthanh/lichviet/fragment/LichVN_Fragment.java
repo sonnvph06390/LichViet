@@ -31,10 +31,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.swipetouch.OnSwipeTouchListener;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -165,10 +162,10 @@ public class LichVN_Fragment extends BaseFragment {
                     @Override
                     public void onClick(View v) {
                         DatePicker picker = dialog.findViewById(R.id.date_picker);
-                        String day = picker.getDayOfMonth()+"";
-                        String thang = picker.getMonth()+"";
-                        String nam = picker.getYear()+"";
-                        String namthang = thang + " " + "-" + " " +nam;
+                        String day = picker.getDayOfMonth() + "";
+                        String thang = picker.getMonth() + "";
+                        String nam = picker.getYear() + "";
+                        String namthang = thang + " " + "-" + " " + nam;
                         tvNgayhomnay.setText(day);
                         tvThangnam.setText(namthang);
                         checkbutton();
@@ -313,7 +310,6 @@ public class LichVN_Fragment extends BaseFragment {
     }
 
     private Calendar checkbutton() {
-
         SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
         String currendate = formar.format(new Date());
         String day = tvNgayhomnay.getText().toString();
@@ -331,6 +327,6 @@ public class LichVN_Fragment extends BaseFragment {
 
     }
     
-
+    
 
 }
