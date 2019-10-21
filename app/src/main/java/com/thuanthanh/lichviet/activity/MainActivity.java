@@ -55,6 +55,9 @@ public class MainActivity extends BaseActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_event:
+                    fragment = new SuKienFragment();
+                    loadFragment(fragment);
+                    return  true;
                 case R.id.nav_tuvi:
 
             }
