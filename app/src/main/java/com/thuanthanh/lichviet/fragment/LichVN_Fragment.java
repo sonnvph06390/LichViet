@@ -84,6 +84,7 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
+
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
