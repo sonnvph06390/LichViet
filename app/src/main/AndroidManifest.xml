@@ -20,13 +20,16 @@
 
 
 
+
         <activity android:name=".activity.Tuvi2019Activity"></activity>
+
 
         <activity
             android:theme="@style/AppThemeNoBar"
             android:name=".activity.MonthViewActivity">
 
         </activity>
+
 
 
         <activity android:name=".activity.MainActivity">
