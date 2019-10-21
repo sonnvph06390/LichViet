@@ -1,6 +1,7 @@
 package com.thuanthanh.lichviet.fragment;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -82,6 +83,7 @@ public class LichVN_Fragment extends BaseFragment {
         initView(view);
         randomImage();
         getTime();
+
 
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
@@ -275,6 +277,7 @@ public class LichVN_Fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Chia sẻ", Toast.LENGTH_SHORT).show();
+
             }
         });
 
