@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".fragment.SuKienFragment"></activity>
         <activity
             android:name=".activity.VietSuKienActivity"
@@ -27,6 +28,7 @@
             android:theme="@style/AppThemeNoBar">
 
         </activity>
+
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
