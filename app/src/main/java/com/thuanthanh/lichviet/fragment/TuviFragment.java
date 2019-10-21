@@ -1,9 +1,11 @@
 package com.thuanthanh.lichviet.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.Tuvi2019Activity;
 
 public class TuviFragment extends Fragment {
     GridView gridView;
@@ -26,6 +29,21 @@ public class TuviFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tuvi, container, false);
         gridView = view.findViewById(R.id.gridview);
         CustomAdapter customAdapter =new CustomAdapter();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                switch (i) {
+                    case 0:
+                        Intent intent = new Intent(getActivity().getApplicationContext(), Tuvi2019Activity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        break;
+
+                }
+            }
+        });
         gridView.setAdapter(customAdapter);
         return view;
 
