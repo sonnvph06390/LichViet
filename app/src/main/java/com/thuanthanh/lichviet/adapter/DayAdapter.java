@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.thuanthanh.lichviet.ItemClickListener;
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.MonthViewActivity;
 import com.thuanthanh.lichviet.activity.SuKienActivity;
 import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
 import com.thuanthanh.lichviet.fragment.SuKienFragment;
@@ -67,6 +68,13 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SuKienActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, MonthViewActivity.class);
                 context.startActivity(intent);
             }
         });
