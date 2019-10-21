@@ -50,20 +50,28 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
         TextView textView = (TextView) view.findViewById(R.id.tvthangnam);
         SimpleDateFormat sdf = new SimpleDateFormat("MM - yyyy");
         String aaa = sdf.format(new Date());
-        textView.setText("Thang\t" + aaa);
+        textView.setText("Tháng\t" + aaa);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_main);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         drawer = view.findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(activity, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        activity.getSupportActionBar().setHomeButtonEnabled(true);
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.icons8_menu_40);
+
+
 
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         CalendarView simpleCalendarView = (CalendarView) view.findViewById(R.id.simpleCalendarView);
 
@@ -74,31 +82,18 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Lịch cá nhân");
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
 
-        inflater.inflate(R.menu.menu_right, menu);
-        inflater.inflate(R.menu.activity_main_drawer, menu);
+        inflater.inflate(R.menu.fragment_drawer, menu);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -176,8 +171,7 @@ public class SuKiennFragment extends BaseFragment implements NavigationView.OnNa
 
     private void swapActivity() {
 
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        startActivity(new Intent(activity, VietSuKienActivity.class));
+        startActivity(new Intent(getContext(), VietSuKienActivity.class));
 
     }
 

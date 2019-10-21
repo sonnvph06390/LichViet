@@ -23,7 +23,7 @@
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#ffffff"
+                android:background="#fafafa"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -34,7 +34,7 @@
                     
                     <TextView
                         android:id="@+id/tvthangnam"
-                        android:textColor="@color/colorBlue"
+                        android:textColor="#007aff"
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
