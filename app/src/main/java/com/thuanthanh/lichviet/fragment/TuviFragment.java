@@ -29,7 +29,7 @@ public class TuviFragment extends Fragment {
         gridView.setAdapter(customAdapter);
         return view;
 
-
+//
     }
     private class CustomAdapter extends BaseAdapter{
 
