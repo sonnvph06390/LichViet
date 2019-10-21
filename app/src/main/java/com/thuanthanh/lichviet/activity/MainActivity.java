@@ -29,10 +29,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomnavigation = findViewById(R.id.bottom_navigation);
-        int mScreenWidth = getWindowManager().getDefaultDisplay().getWidth();
-        int mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();
-        View view = getLayoutInflater().inflate(R.layout.activity_main, null);
-        setContentView(view, new ViewGroup.LayoutParams(mScreenWidth, mScreenHeight));
+//        int mScreenWidth = getWindowManager().getDefaultDisplay().getWidth();
+//        int mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();
+//        View view = getLayoutInflater().inflate(R.layout.activity_main, null);
+//        setContentView(view, new ViewGroup.LayoutParams(mScreenWidth, mScreenHeight));
         bottomnavigation.setOnNavigationItemSelectedListener(navListener);
         loadFragment(new HomeFragment());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
