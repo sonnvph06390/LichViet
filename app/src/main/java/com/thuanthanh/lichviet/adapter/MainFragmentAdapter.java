@@ -106,14 +106,14 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     private void danhngonView(DanhNgonViewHolder holder) {
-        DanhNgonAdapter adapter = new DanhNgonAdapter(getDanhNgonData());
+        DanhNgonAdapter adapter = new DanhNgonAdapter(getDanhNgonData(), context);
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recyclerView.setAdapter(adapter);
 
     }
 
     private void dayView(DayViewHolder holder) {
-        DayAdapter adapter = new DayAdapter(getDayData());
+        DayAdapter adapter = new DayAdapter(getDayData(), context);
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recyclerView.setAdapter(adapter);
 
@@ -124,6 +124,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recyclerView.setAdapter(adapter);
     }
+
     private void suKienQuanTrongView(SuKienQuanTrongHolder holder) {
         SuKienQuanTrongAdapter adapter = new SuKienQuanTrongAdapter(getSuKienQuanTrongData());
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
@@ -193,6 +194,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             recyclerView = (RecyclerView) itemView.findViewById(R.id.doingay_taosukien_rcv);
         }
     }
+
     public class SuKienQuanTrongHolder extends RecyclerView.ViewHolder {
 
         RecyclerView recyclerView;

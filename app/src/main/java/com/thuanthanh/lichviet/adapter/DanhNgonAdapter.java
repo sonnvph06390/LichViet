@@ -1,5 +1,7 @@
 package com.thuanthanh.lichviet.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.DanhNgonActivity;
 import com.thuanthanh.lichviet.model.DanhNgon;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DanhNgonAdapter extends RecyclerView.Adapter<DanhNgonAdapter.MyViewHolder> {
     private ArrayList<DanhNgon> danhNgons = new ArrayList<>();
-
-    public DanhNgonAdapter(ArrayList<DanhNgon> danhNgons) {
+    private Context context;
+    public DanhNgonAdapter(ArrayList<DanhNgon> danhNgons,Context context) {
         this.danhNgons = danhNgons;
+        this.context=context;
     }
+
 
     @NonNull
     @Override
@@ -34,6 +38,13 @@ public class DanhNgonAdapter extends RecyclerView.Adapter<DanhNgonAdapter.MyView
         holder.imgDanhNgonShare.setImageResource(R.drawable.btn_chiase_white);
         holder.tvDanhNgon.setText(danhNgons.get(position).getDanhngon());
         holder.tvTacGia.setText(danhNgons.get(position).getTacgia());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, DanhNgonActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
