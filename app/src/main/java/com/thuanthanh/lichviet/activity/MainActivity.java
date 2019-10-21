@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.fragment.HomeFragment;
 import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
+import com.thuanthanh.lichviet.fragment.SuKienFragment;
 
 public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomnavigation;
@@ -55,7 +56,6 @@ public class MainActivity extends BaseActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_event:
-
                 case R.id.nav_tuvi:
 
             }
