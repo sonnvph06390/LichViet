@@ -10,6 +10,7 @@
     <color name="hex_white">#66FFFFFF</color>
     <color name="blue_text">#012e7e</color>
     <color name="black">#000</color>
+
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#00BCD4</color>
     <color name="colorAccent">#ffffff</color>
@@ -26,5 +27,8 @@
     <color name="colorPrimaryDark2">#00574B</color>
     <color name="colorAccent3">#D81B60</color>
 
+
+
+    <color name="with">#FFFFFF</color>
 
 </resources>
