@@ -1,6 +1,8 @@
 package com.thuanthanh.lichviet.activity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,20 +19,40 @@ import java.util.ArrayList;
 
 public class DanhNgonActivity extends AppCompatActivity {
     private TabLayout tabLayout;
+    private TabLayout tabLayout2;
     ViewPager viewPager;
     TabScrollDanhNgonAdapter viewPagerAdapter;
     ArrayList<Fragment> fragments;
-    ArrayList<String> titles;
+    ArrayList<String> titles = new ArrayList<>();
+    String[] listitle = new String[]{"Yêu thích","Ca dao - tục ngữ","Phật giáo",
+            "Tình yêu","Hôn nhân","Gia đình","Tình  bạn","Động lực","Thành công","Công việc"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_ngon);
         tabLayout = findViewById(R.id.tabLayout);
+        tabLayout2 = findViewById(R.id.tabLayout2);
         viewPager = findViewById(R.id.view_pager);
+//        titles = new ArrayList<>();
         cargarTitles();
         cargarFragment();
         ViewPagerEnTabLayout();
+        setupTabIcons();
+
+
+
+
+    }
+
+    private void setupTabIcons() {
+        for (int i = 0; i < 10; i++) {
+            TextView tab = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
+            tab.setText(listitle[i]);
+            tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.i_1nam, 0, 0);
+            tabLayout.getTabAt(i).setCustomView(tab);
+        }
     }
 
     private void cargarFragment() {
@@ -48,17 +70,17 @@ public class DanhNgonActivity extends AppCompatActivity {
     }
 
     private void cargarTitles() {
-        titles = new ArrayList<>();
-        titles.add("Fragment1111111111");
-        titles.add("Fragment22222222222");
-        titles.add("Fragment3333333333");
-        titles.add("Fragment444444444");
-        titles.add("Fragment5555555555");
-        titles.add("Fragment666666666666");
-        titles.add("Fragment666666666666");
-        titles.add("Fragment666666666666");
-        titles.add("Fragment666666666666");
-        titles.add("Fragment666666666666");
+
+        titles.add("Yêu thích");
+        titles.add("Ca dao - tục ngữ");
+        titles.add("Phật giáo");
+        titles.add("Tình yêu");
+        titles.add("Hôn nhân");
+        titles.add("Gia đình");
+        titles.add("Tình  bạn");
+        titles.add("Động lực");
+        titles.add("Thành công");
+        titles.add("Công việc");
 
     }
 
@@ -66,5 +88,6 @@ public class DanhNgonActivity extends AppCompatActivity {
         viewPagerAdapter = new TabScrollDanhNgonAdapter(getSupportFragmentManager(), fragments, titles);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout2.setupWithViewPager(viewPager);
     }
 }
