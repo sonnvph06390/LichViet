@@ -1,6 +1,7 @@
 package com.thuanthanh.lichviet.fragment;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +32,7 @@ import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.swipetouch.OnSwipeTouchListener;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -52,6 +56,7 @@ public class LichVN_Fragment extends BaseFragment {
     private TextView tvThongtinnam;
     private Guideline guideline2;
     private LinearLayout layout_chonngay;
+    private TextView tvhomay;
     private TextView tvThangnam;
     private ImageButton btn_image;
     private TextView tvNgayhomnay;
@@ -66,11 +71,10 @@ public class LichVN_Fragment extends BaseFragment {
     private LinearLayout chonngaytot;
     private LinearLayout doingay;
     private LinearLayout nnnx;
-    String dateformat = "dd";
-    String dateMonth = "MM - yyy";
-    String dayofweek = "EEEE";
+    private Button btn_data_set;
+    Calendar a = null;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
@@ -80,35 +84,60 @@ public class LichVN_Fragment extends BaseFragment {
         randomImage();
         getTime();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateMonth);
-        final SimpleDateFormat day = new SimpleDateFormat(dateformat);
-        SimpleDateFormat week = new SimpleDateFormat(dayofweek);
-        String format = simpleDateFormat.format(new Date());
-        final String dayformat = day.format(new Date());
-        String a = week.format(new Date());
-        tvThangnam.setText(format);
-        tvNgayhomnay.setText(dayformat);
-        tvThu.setText(a);
 
         constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             public void onSwipeTop() {
                 randomImage();
-                getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                a.add(Calendar.MONTH, 1);
+                String next_moth = format.format(a.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
+                layoutWeather.setVisibility(View.GONE);
             }
 
             public void onSwipeRight() {
                 randomImage();
-                getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                a.add(Calendar.DAY_OF_YEAR, -1);
+                String next_moth = format.format(a.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
             }
 
             public void onSwipeLeft() {
                 randomImage();
-                getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                a.add(Calendar.DAY_OF_YEAR, 1);
+                String next_moth = format.format(a.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
             }
 
             public void onSwipeBottom() {
                 randomImage();
-                getTime();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM - yyyy/HH:mm/ss/EEEE");
+                a.add(Calendar.MONTH, -1);
+                String next_moth = format.format(a.getTime());
+                String[] chuoi = next_moth.split("/");
+                tvNgayhomnay.setText(chuoi[0]);
+                tvThangnam.setText(chuoi[1]);
+                tvGio.setText(chuoi[2]);
+                tvThu.setText(chuoi[4]);
+                checkbutton();
+                layoutWeather.setVisibility(View.GONE);
             }
         });
 
@@ -126,11 +155,34 @@ public class LichVN_Fragment extends BaseFragment {
         layout_chonngay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog dialog = new BottomSheetDialog(getContext());
+                final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
                 dialog.setContentView(R.layout.chonngay);
                 dialog.show();
+                btn_data_set = dialog.findViewById(R.id.btn_date_set);
+                btn_data_set.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DatePicker picker = dialog.findViewById(R.id.date_picker);
+                        String day = picker.getDayOfMonth() + "";
+                        String thang = picker.getMonth() + "";
+                        String nam = picker.getYear() + "";
+                        String namthang = thang + " " + "-" + " " + nam;
+                        tvNgayhomnay.setText(day);
+                        tvThangnam.setText(namthang);
+                        checkbutton();
+                        dialog.dismiss();
+                    }
+                });
             }
         });
+
+        tvhomay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getTime();
+            }
+        });
+
         return view;
     }
 
@@ -160,6 +212,7 @@ public class LichVN_Fragment extends BaseFragment {
         tvCadao = view.findViewById(R.id.tv_cadao);
         tvNguon = view.findViewById(R.id.tv_nguon);
         constraintLayout = view.findViewById(R.id.const_layout);
+        tvhomay = view.findViewById(R.id.tv_homay);
     }
 
     private void initDialog(BottomSheetDialog dialog) {
@@ -194,6 +247,16 @@ public class LichVN_Fragment extends BaseFragment {
     private void getTime() {
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         tvGio.setText(currentTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM - yyyy");
+        final SimpleDateFormat day = new SimpleDateFormat("dd");
+        SimpleDateFormat week = new SimpleDateFormat("EEEE");
+        String format = simpleDateFormat.format(new Date());
+        final String dayformat = day.format(new Date());
+        String a = week.format(new Date());
+        tvThangnam.setText(format);
+        tvNgayhomnay.setText(dayformat);
+        tvThu.setText(a);
+        checkbutton();
     }
 
     private int getImage() {
@@ -202,7 +265,7 @@ public class LichVN_Fragment extends BaseFragment {
         return images[rand.nextInt(images.length)];
     }
 
-    private void onclickDialog(){
+    private void onclickDialog() {
         taosukien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -214,6 +277,7 @@ public class LichVN_Fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Chia sẻ", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -245,5 +309,25 @@ public class LichVN_Fragment extends BaseFragment {
             }
         });
     }
+
+    private Calendar checkbutton() {
+        SimpleDateFormat formar = new SimpleDateFormat("dd - MM - yyy");
+        String currendate = formar.format(new Date());
+        String day = tvNgayhomnay.getText().toString();
+        String thang = tvThangnam.getText().toString();
+        String daythang = day + " " + "-" + " " + thang;
+        if (currendate.equals(daythang)) {
+            tvhomay.setVisibility(View.GONE);
+            layoutWeather.setVisibility(View.VISIBLE);
+            a = Calendar.getInstance();
+            return a;
+        } else {
+            tvhomay.setVisibility(View.VISIBLE);
+        }
+        return null;
+
+    }
+    
+    
 
 }
