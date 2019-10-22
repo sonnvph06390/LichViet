@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".fragment.SuKienFragment"></activity>
         <activity
             android:name=".activity.VietSuKienActivity"
@@ -16,9 +17,12 @@
         <activity
             android:name=".activity.SuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.Tuvi2019Activity"></activity>
+        <activity android:name=".activity.DanhNgonActivity" />
         <activity
-            android:name=".activity.DanhNgonActivity"/>
-        <activity android:name=".activity.MonthViewActivity" />
+            android:name=".activity.MonthViewActivity"
+            android:theme="@style/AppThemeNoBar">
+        </activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

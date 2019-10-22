@@ -13,18 +13,12 @@
     <color name="colorPrimary">#388DDA</color>
     <color name="colorPrimaryDark">#00BCD4</color>
     <color name="colorAccent">#ffffff</color>
-
-
     <color name="line_color">#e7e7e7</color>
     <color name="content_background">#f2f2f2</color>
     <color name="solar_background">#009988</color>
-
     <color name="colorLineBottom">#E4E4E4</color>
-
-
     <color name="colorPrimary1">#008577</color>
     <color name="colorPrimaryDark2">#00574B</color>
     <color name="colorAccent3">#D81B60</color>
-
-
+    <color name="with">#FFFFFF</color>
 </resources>
