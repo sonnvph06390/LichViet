@@ -36,6 +36,6 @@ public class VietSuKienActivity extends AppCompatActivity {
 
     private void initView() {
         tabs = (TabLayout) findViewById(R.id.tabs);
-        viewPager = (ViewPager) findViewById(R.id.container);
+        viewPager = (ViewPager) findViewById(R.id.containerr);
     }
 }

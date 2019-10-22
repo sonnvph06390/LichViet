@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/sukien_canhan_compact"
+            android:src="@drawable/tao_sukien_kyniem"
             android:layout_marginBottom="50dp"/>
         <TextView
             android:layout_gravity="center"
