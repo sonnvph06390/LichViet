@@ -40,4 +40,11 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.kirich1409.svgplugin:glide4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
 }

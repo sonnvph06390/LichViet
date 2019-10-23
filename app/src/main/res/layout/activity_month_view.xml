@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.MonthViewActivity">
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolBar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="?actionBarSize"/>-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lnTop"
         android:layout_width="match_parent"
@@ -21,6 +16,7 @@
 
         <ImageView
             android:id="@+id/imageView"
+            android:onClick="onClickBackToMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -246,6 +242,115 @@
                             android:layout_height="20px"
                             android:background="@color/colorLineBottom" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imgIcon"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@mipmap/ic_launcher" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvCity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Thành phố: Hà Nội" />
+
+                            <TextView
+                                android:id="@+id/tvNhietDo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Nhiệt độ"
+                                android:textColor="@color/colorRed" />
+
+                            <TextView
+                                android:id="@+id/tvCloud"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="May" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvNgay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Độ ẩm" />
+
+
+                            <ImageView
+                                android:id="@+id/imgNgay"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDem"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tốc độ gió"/>
+
+
+                            <ImageView
+                                android:id="@+id/imgDem"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_margin="16dp"
+                        android:id="@+id/lineBottom1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1px"
+                        android:background="#000" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvThoiTiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 

@@ -25,13 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             app:tabMode="scrollable"
+            app:tabIndicatorColor="@color/white"
 
             />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/container"
+        android:id="@+id/containerr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

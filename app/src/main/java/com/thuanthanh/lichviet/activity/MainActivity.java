@@ -30,6 +30,11 @@ import com.thuanthanh.lichviet.fragment.SuKienFragment;
 import com.thuanthanh.lichviet.fragment.TuviFragment;
 
 
+import com.thuanthanh.lichviet.fragment.TuviFragment;
+
+import com.thuanthanh.lichviet.fragment.SuKiennFragment;
+
+
 public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomnavigation;
 
@@ -56,15 +61,17 @@ public class MainActivity extends BaseActivity {
                     fragment = new HomeFragment();
                     loadFragment(fragment);
                     return true;
+
                 case R.id.nav_vn_calendar:
                     fragment = new LichVN_Fragment();
-
                     loadFragment(fragment);
                     return true;
+
                 case R.id.nav_event:
                     fragment = new SuKienFragment();
-                    loadFragment(fragment);
+                    loadFragment( fragment);
                     return  true;
+
                 case R.id.nav_tuvi:
                     fragment=new TuviFragment();
                     loadFragment(fragment);
