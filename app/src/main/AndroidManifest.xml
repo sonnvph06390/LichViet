@@ -13,26 +13,24 @@
         android:theme="@style/AppTheme">
 
 
+
         <activity android:name=".fragment.SuKienFragment"></activity>
         <activity android:name=".activity.TaoSuKienActivity"></activity>
+
+        <activity android:name=".activity.VankhanActivity"></activity>
+        <activity android:name=".activity.TuvihangngayActivity" />
+
+
         <activity
             android:name=".activity.VietSuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".fragment.SuKiennFragment"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
-        <activity android:name=".activity.Tuvi2019Activity"></activity>
-
-
+        <activity android:name=".activity.Tuvi2019Activity" />
         <activity
             android:name=".activity.MonthViewActivity"
-            android:theme="@style/AppThemeNoBar">
-
-        </activity>
-
-
+            android:theme="@style/AppThemeNoBar" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
