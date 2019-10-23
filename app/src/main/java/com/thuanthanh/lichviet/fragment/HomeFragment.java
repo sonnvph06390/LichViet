@@ -2,12 +2,16 @@ package com.thuanthanh.lichviet.fragment;
 
 
 
+import android.app.Dialog;
 import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,6 +37,10 @@ public class HomeFragment extends BaseFragment {
     private RecyclerView rcvFragmentHome;
     TextView tvMonthView;
     private ArrayList<Object> objects = new ArrayList<>();
+    private TextView tvSua;
+
+
+
 
     @Nullable
     @Override
@@ -40,6 +48,7 @@ public class HomeFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         toobarFragmentHome = (RelativeLayout) view.findViewById(R.id.toobarFragmentHome);
         rcvFragmentHome = (RecyclerView) view.findViewById(R.id.rcv_fragment_home);
+        tvSua = (TextView) view.findViewById(R.id.tvSua);
         tvMonthView = (TextView) view.findViewById(R.id.tvMonthView);
         tvMonthView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +57,25 @@ public class HomeFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+        tvSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.custom_dialog);
+                ImageView ivCloseDialog = (ImageView) dialog.findViewById(R.id.ivCloseDialog);
+                ivCloseDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
+
         MainFragmentAdapter adapter = new MainFragmentAdapter(getContext(), getObject());
         rcvFragmentHome.setAdapter(adapter);
         rcvFragmentHome.setLayoutManager(new LinearLayoutManager(getContext()));

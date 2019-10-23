@@ -23,5 +23,5 @@
     <color name="colorRed" tools:ignore="MissingDefaultResource">#FF0000</color>
     <color name="colorGray">#e6ebfc</color>
     <color name="colorLightBlue">#0877c2</color>
-
+    <color name="colorTransparent">#43000000</color>
 </resources>
