@@ -7,20 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thuanthanh.lichviet.ItemClickListener;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.activity.MonthViewActivity;
-import com.thuanthanh.lichviet.activity.SuKienActivity;
-import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
-import com.thuanthanh.lichviet.fragment.SuKienFragment;
 import com.thuanthanh.lichviet.model.Day;
 
 import java.util.ArrayList;
@@ -67,8 +60,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
         holder.btnSoSukien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SuKienActivity.class);
-                context.startActivity(intent);
+
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +70,6 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override

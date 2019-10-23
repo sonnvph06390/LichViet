@@ -3,15 +3,9 @@ package com.thuanthanh.lichviet.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
-
-
 
 
 import androidx.annotation.NonNull;
@@ -26,11 +20,8 @@ import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.fragment.HomeFragment;
 import com.thuanthanh.lichviet.fragment.LichVN_Fragment;
 
-import com.thuanthanh.lichviet.fragment.SuKienFragment;
 import com.thuanthanh.lichviet.fragment.TuviFragment;
 
-
-import com.thuanthanh.lichviet.fragment.TuviFragment;
 
 import com.thuanthanh.lichviet.fragment.SuKiennFragment;
 
@@ -68,7 +59,7 @@ public class MainActivity extends BaseActivity {
                     return true;
 
                 case R.id.nav_event:
-                    fragment = new SuKienFragment();
+                    fragment = new SuKiennFragment();
                     loadFragment( fragment);
                     return  true;
 
