@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/img_item_tuviboitoan"
+        android:id="@+id/imgTuVi"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:src="@drawable/i_tuvi3x" />
 
     <TextView
-        android:id="@+id/tvTitleItemTuvi"
+        android:id="@+id/tvTuVi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -12,5 +12,6 @@
     <dimen name="text_thu">20dp</dimen>
     <dimen name="text_time_ngayam_thangam">30dp</dimen>
     <dimen name="text_bottom_sheet">24sp</dimen>
+    <dimen name="linear_layout">10dp</dimen>
 
 </resources>
