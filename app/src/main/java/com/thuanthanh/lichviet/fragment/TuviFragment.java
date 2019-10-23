@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.BoitinhduyenActivity;
 import com.thuanthanh.lichviet.activity.Tuvi2019Activity;
 import com.thuanthanh.lichviet.activity.TuvihangngayActivity;
 import com.thuanthanh.lichviet.activity.VankhanActivity;
@@ -48,7 +49,10 @@ public class TuviFragment extends Fragment {
                         Intent intent1 = new Intent(getActivity().getApplicationContext(), VankhanActivity.class);
                         startActivity(intent1);
                         break;
-
+                    case 5:
+                        Intent intent5 = new Intent(getActivity().getApplicationContext(), BoitinhduyenActivity.class);
+                        startActivity(intent5);
+                        break;
                 }
             }
         });

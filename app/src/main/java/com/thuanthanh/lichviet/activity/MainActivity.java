@@ -8,8 +8,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 
-
-
 import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
@@ -44,6 +42,7 @@ public class MainActivity extends BaseActivity {
         }
 
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -55,16 +54,16 @@ public class MainActivity extends BaseActivity {
                     return true;
                 case R.id.nav_vn_calendar:
                     fragment = new LichVN_Fragment();
-                    loadFragment( fragment);
-                    return  true;
+                    loadFragment(fragment);
+                    return true;
                 case R.id.nav_event:
 
                     fragment = new SuKiennFragment();
                     loadFragment(fragment);
-                    return  true;
+                    return true;
 
                 case R.id.nav_tuvi:
-                    fragment=new TuviFragment();
+                    fragment = new TuviFragment();
                     loadFragment(fragment);
                     return true;
             }
@@ -75,7 +74,7 @@ public class MainActivity extends BaseActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
-     //  transaction.addToBackStack(null);
+        //  transaction.addToBackStack(null);
         transaction.commit();
 
 

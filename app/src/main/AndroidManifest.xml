@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thuanthanh.lichviet">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,16 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
-        <activity android:name=".fragment.SuKienFragment"></activity>
-        <activity android:name=".activity.TaoSuKienActivity"></activity>
-
-        <activity android:name=".activity.VankhanActivity"></activity>
+        <activity android:name=".activity.BoitinhduyenActivity"></activity>
+        <activity android:name=".fragment.SuKienFragment" />
+        <activity android:name=".activity.TaoSuKienActivity" />
+        <activity android:name=".activity.VankhanActivity" />
         <activity android:name=".activity.TuvihangngayActivity" />
-
-
         <activity
             android:name=".activity.VietSuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
