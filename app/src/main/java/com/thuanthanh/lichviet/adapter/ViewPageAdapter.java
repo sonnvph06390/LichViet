@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.thuanthanh.lichviet.fragment.SuKienFragment;
 import com.thuanthanh.lichviet.fragment.SuKiennFragment;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
@@ -20,47 +21,47 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         if (position == 0)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 1)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 2)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 3)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 4)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 5)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 6)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 7)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 8)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 9)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         else if (position == 10)
         {
-            fragment = new SuKiennFragment();
+            fragment = new SuKienFragment();
         }
         return fragment;
     }

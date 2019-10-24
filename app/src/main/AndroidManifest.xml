@@ -14,11 +14,10 @@
 
 
         <activity android:name=".activity.TaoSuKienActivity"></activity>
-
         <activity android:name=".activity.BoitinhduyenActivity"></activity>
         <activity android:name=".activity.VankhanActivity" />
         <activity android:name=".activity.TuvihangngayActivity" />
-
+        <activity android:name=".fragment.SuKienFragment" />
         <activity
             android:name=".activity.VietSuKienActivity"
             android:theme="@style/AppTheme.NoActionBar" />
