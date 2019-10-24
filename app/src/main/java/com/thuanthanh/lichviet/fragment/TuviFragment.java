@@ -16,7 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.thuanthanh.lichviet.R;
+import com.thuanthanh.lichviet.activity.BoitinhduyenActivity;
 import com.thuanthanh.lichviet.activity.Tuvi2019Activity;
+import com.thuanthanh.lichviet.activity.TuvihangngayActivity;
+import com.thuanthanh.lichviet.activity.VankhanActivity;
 
 public class TuviFragment extends Fragment {
     GridView gridView;
@@ -39,8 +42,17 @@ public class TuviFragment extends Fragment {
                         startActivity(intent);
                         break;
                     case 1:
+                        Intent intent2 = new Intent(getActivity().getApplicationContext(), TuvihangngayActivity.class);
+                        startActivity(intent2);
                         break;
-
+                    case 2:
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), VankhanActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 5:
+                        Intent intent5 = new Intent(getActivity().getApplicationContext(), BoitinhduyenActivity.class);
+                        startActivity(intent5);
+                        break;
                 }
             }
         });

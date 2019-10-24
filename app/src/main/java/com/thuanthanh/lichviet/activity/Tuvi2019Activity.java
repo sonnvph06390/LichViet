@@ -4,23 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thuanthanh.lichviet.R;
 
 public class Tuvi2019Activity extends AppCompatActivity {
     private Toolbar toolbar;
+    private ImageView imgToolbar;
+    private TextView tvToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tuvi2019);
+        anhxa();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Tử Vi 2019");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        anhxa();
+        imgToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
         NumberPicker picker1 = (NumberPicker) findViewById(R.id.np1);
         if (picker1 != null) {
 
@@ -55,5 +66,7 @@ public class Tuvi2019Activity extends AppCompatActivity {
     }
 
     private void anhxa() {
+        imgToolbar = findViewById(R.id.imgtoolbar);
+        tvToolbar = findViewById(R.id.tvToolbar);
     }
 }
