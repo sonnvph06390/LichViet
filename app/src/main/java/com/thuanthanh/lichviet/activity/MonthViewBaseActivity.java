@@ -15,7 +15,7 @@ import com.thuanthanh.lichviet.R;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
+//
 public abstract class MonthViewBaseActivity extends AppCompatActivity {
 
     private static boolean isMiUi = false;

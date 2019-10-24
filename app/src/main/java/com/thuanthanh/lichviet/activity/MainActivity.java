@@ -59,12 +59,16 @@ public class MainActivity extends BaseActivity {
                     return true;
 
                 case R.id.nav_event:
+
                     fragment = new SuKiennFragment();
+
                     loadFragment( fragment);
                     return  true;
 
+
+
                 case R.id.nav_tuvi:
-                    fragment=new TuviFragment();
+                    fragment = new TuviFragment();
                     loadFragment(fragment);
                     return true;
             }
@@ -75,6 +79,7 @@ public class MainActivity extends BaseActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
+
         transaction.commit();
 
     }

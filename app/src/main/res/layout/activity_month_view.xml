@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:onClick="onClickBackToMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:onClick="onClickBackToMain"
             android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -126,16 +126,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <View
-                        android:layout_below="@id/calendarLayout"
                         android:layout_width="match_parent"
                         android:layout_height="20px"
+                        android:layout_below="@id/calendarLayout"
                         android:background="@color/colorLineBottom" />
 
                     <LinearLayout
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -153,23 +154,23 @@
                             android:text="aaaaaa" />
 
                         <View
-                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="1px"
+                            android:layout_marginTop="5dp"
                             android:background="@color/colorLineBottom" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_margin="10dp"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="GIỜ HOÀNG ĐẠO" />
+                            android:text="GIỜ HOÀNG ĐẠO"
+                            android:textStyle="bold" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rvGioHoangDao"
@@ -180,73 +181,75 @@
 
                         <LinearLayout
                             android:id="@+id/lnHoangDao"
-                            android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:gravity="center_horizontal"
-                                android:text="HÀNH: Thổ"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:text="HÀNH: Thổ" />
 
                             <TextView
-                                android:gravity="center_horizontal"
-                                android:text="TRỰC: Thổ"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:text="TRỰC: Thổ" />
 
                             <TextView
-                                android:gravity="center_horizontal"
-                                android:text="SAO: Thổ"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:text="SAO: Thổ" />
 
                         </LinearLayout>
+
                         <View
-                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="20px"
                             android:layout_below="@id/lnHoangDao"
-                            android:layout_width="match_parent"
-                            android:layout_height="20px"
-                            android:background="@color/colorLineBottom" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_margin="10dp"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:text="SỰ KIỆN"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginLeft="20dp"
-                            android:text="Chưa thêm sự kiện nào"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginLeft="20dp"
-                            android:text="Hãy nhấn để thêm sự kiện"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <View
                             android:layout_marginTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="20px"
                             android:background="@color/colorLineBottom" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_margin="16dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SỰ KIỆN" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Chưa thêm sự kiện nào" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Hãy nhấn để thêm sự kiện" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="20px"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorLineBottom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -256,9 +259,9 @@
 
                             <ImageView
                                 android:id="@+id/imgIcon"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_weather" />
 
                         </LinearLayout>
 
@@ -294,9 +297,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_margin="16dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -328,7 +331,7 @@
                                 android:id="@+id/tvDem"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Tốc độ gió"/>
+                                android:text="Tốc độ gió" />
 
 
                             <ImageView
@@ -341,21 +344,148 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_margin="16dp"
                         android:id="@+id/lineBottom1"
                         android:layout_width="match_parent"
                         android:layout_height="0.1px"
+                        android:layout_margin="16dp"
                         android:background="#000" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvThoiTiet"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20px"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorLineBottom" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TUỔI XUNG THEO NGÀY"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTuoiXungNgay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20px"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorLineBottom" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TUỔI XUNG THEO THÁNG"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTuoiXungthang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20px"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorLineBottom" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/linear_layout"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Xuất hành"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvXuatHanh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20px"
+                        android:layout_marginTop="@dimen/linear_layout"
+                        android:background="@color/colorLineBottom" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/linear_layout"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TIẾT KHÍ"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@mipmap/ic_launcher" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@mipmap/ic_launcher" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLineBottom"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTuVi"
+                            android:layout_margin="@dimen/linear_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
-
         </com.haibin.calendarview.CalendarLayout>
     </LinearLayout>
 </RelativeLayout>

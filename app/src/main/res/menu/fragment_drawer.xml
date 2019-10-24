@@ -24,7 +24,7 @@
                 android:title="@string/ngaygio" />
             <item
                 android:id="@+id/nav_canhan"
-                android:icon="@drawable/sukien_canhan"
+                android:icon="@drawable/sukien_canhan_compact"
                 android:title="@string/canhan" />
             <item
                 android:id="@+id/nav_giadinh"

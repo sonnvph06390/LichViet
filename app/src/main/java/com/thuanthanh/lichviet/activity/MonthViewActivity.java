@@ -25,8 +25,17 @@ import com.haibin.calendarview.CalendarView;
 import com.thuanthanh.lichviet.R;
 import com.thuanthanh.lichviet.adapter.GioHoangDaoAdapter;
 import com.thuanthanh.lichviet.adapter.ThoiTietAdapter;
+import com.thuanthanh.lichviet.adapter.TuViAdapter;
+import com.thuanthanh.lichviet.adapter.TuoiXungNgayAdapter;
+import com.thuanthanh.lichviet.adapter.TuoiXungThangAdapter;
+import com.thuanthanh.lichviet.adapter.XuatHanhAdapter;
 import com.thuanthanh.lichviet.model.GioHoangDao;
 import com.thuanthanh.lichviet.model.PerHour.PerHour;
+import com.thuanthanh.lichviet.model.TuVi;
+import com.thuanthanh.lichviet.model.TuViBoiToan;
+import com.thuanthanh.lichviet.model.TuoiXungNgay;
+import com.thuanthanh.lichviet.model.TuoiXungThang;
+import com.thuanthanh.lichviet.model.XuatHanh;
 import com.thuanthanh.lichviet.retrofit.Retrofit;
 
 import org.json.JSONArray;
@@ -48,10 +57,33 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
     private TextView tvDuongLichTop;
     private TextView tvDuongLich;
     private TextView tvAmLich;
+
+    //Gio hoang dao
     private RecyclerView rvHoangDao;
     private List<GioHoangDao> gioHoangDaos;
     private GridLayoutManager gridLayoutManager;
     private GioHoangDaoAdapter gioHoangDaoAdapter;
+
+    //Tuoi xung theo ngay
+    private RecyclerView rvTuoiXungNgay;
+    private List<TuoiXungNgay> tuoiXungNgays;
+    private TuoiXungNgayAdapter tuoiXungNgayAdapter;
+
+    //Tuoi xung theo thang
+    private RecyclerView rvTuoiXungThang;
+    private List<TuoiXungThang> tuoiXungThangs;
+    private TuoiXungThangAdapter tuoiXungThangAdapter;
+
+    //Xuat hanh
+    private RecyclerView rvXuatHanh;
+    private List<XuatHanh> xuatHanhs;
+    private XuatHanhAdapter xuatHanhAdapter;
+
+    //Tu Vi
+    private RecyclerView rvTuVi;
+    private List<TuVi> tuVis;
+    private TuViAdapter tuViAdapter;
+
     //thoi tiet
     private ImageView imgIcon;
     private TextView tvNhietDo;
@@ -73,12 +105,6 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
 
     @Override
     protected void initView() {
-        rvHoangDao = findViewById(R.id.rvGioHoangDao);
-        gioHoangDaos = new ArrayList<>();
-        gioHoangDaoAdapter = new GioHoangDaoAdapter(this, gioHoangDaos);
-        rvHoangDao.setAdapter(gioHoangDaoAdapter);
-        gridLayoutManager = new GridLayoutManager(this, 2);
-        rvHoangDao.setLayoutManager(gridLayoutManager);
         tvDuongLichTop = findViewById(R.id.tvDuongLichTop);
         tvDuongLich = findViewById(R.id.tvDuongLich);
         tvAmLich = findViewById(R.id.tvAmLich);
@@ -94,8 +120,47 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
         imgNgay = (ImageView) findViewById(R.id.imgNgay);
         tvDem = (TextView) findViewById(R.id.tvDem);
         imgDem = (ImageView) findViewById(R.id.imgDem);
-        
-        
+
+        //Gio hoang dao
+        rvHoangDao = findViewById(R.id.rvGioHoangDao);
+        gioHoangDaos = new ArrayList<>();
+        gioHoangDaoAdapter = new GioHoangDaoAdapter(this, gioHoangDaos);
+        rvHoangDao.setAdapter(gioHoangDaoAdapter);
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        rvHoangDao.setLayoutManager(gridLayoutManager);
+
+        //Tuoi xung theo ngay
+        rvTuoiXungNgay = findViewById(R.id.rvTuoiXungNgay);
+        tuoiXungNgays = new ArrayList<>();
+        tuoiXungNgayAdapter = new TuoiXungNgayAdapter(this, tuoiXungNgays);
+        rvTuoiXungNgay.setAdapter(tuoiXungNgayAdapter);
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        rvTuoiXungNgay.setLayoutManager(gridLayoutManager);
+
+        //Tuoi xung theo ngay
+        rvTuoiXungThang = findViewById(R.id.rvTuoiXungthang);
+        tuoiXungThangs = new ArrayList<>();
+        tuoiXungThangAdapter = new TuoiXungThangAdapter(this, tuoiXungThangs);
+        rvTuoiXungThang.setAdapter(tuoiXungThangAdapter);
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        rvTuoiXungThang.setLayoutManager(gridLayoutManager);
+
+        //Xuat hanh
+        rvXuatHanh = findViewById(R.id.rvXuatHanh);
+        xuatHanhs = new ArrayList<>();
+        xuatHanhAdapter = new XuatHanhAdapter(this, xuatHanhs);
+        rvXuatHanh.setAdapter(xuatHanhAdapter);
+        gridLayoutManager = new GridLayoutManager(this, 3);
+        rvXuatHanh.setLayoutManager(gridLayoutManager);
+
+        //Tu vi
+        rvTuVi = findViewById(R.id.rvTuVi);
+        tuVis = new ArrayList<>();
+        tuViAdapter = new TuViAdapter(this, tuVis);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rvTuVi.setLayoutManager(linearLayoutManager);
+        rvTuVi.setAdapter(tuViAdapter);
+
         //thoi tiet
         rvThoiTiet = findViewById(R.id.rvThoiTiet);
         perHours = new ArrayList<>();
@@ -161,10 +226,21 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
                             JSONObject jsonObjectNight = jsonObjectWeather.getJSONObject("Night");
                             String night = jsonObjectNight.getString("IconPhrase");
                             tvDem.setText(night);
-                            Log.e("Dem", night);
                             String iconNight = jsonObjectNight.getString("Icon");
                             Glide.with(MonthViewActivity.this).load("https://www.accuweather.com/images/weathericons/" + iconNight + ".svg").into(imgDem);
 
+                            java.util.Calendar openingHour = java.util.Calendar.getInstance();
+                            openingHour.set(java.util.Calendar.HOUR_OF_DAY, 18);
+                            openingHour.set(java.util.Calendar.MINUTE, 00);
+                            openingHour.set(java.util.Calendar.SECOND, 0);
+                            openingHour.set(java.util.Calendar.MILLISECOND, 0);
+                            java.util.Calendar currentTime = java.util.Calendar.getInstance();
+//                            int dayOfWeek = currentTime.get(java.util.Calendar.DAY_OF_WEEK);
+                            if(currentTime.after(openingHour)){
+                                Glide.with(MonthViewActivity.this).load("https://www.accuweather.com/images/weathericons/" + iconNight + ".svg").into(imgIcon);
+                            } else {
+                                Glide.with(MonthViewActivity.this).load("https://www.accuweather.com/images/weathericons/" + iconDay + ".svg").into(imgIcon);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -202,6 +278,7 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
 
     @Override
     protected void initData() {
+        //Gio hoang dao
         GioHoangDao gioHoangDao = new GioHoangDao(R.drawable.suu, "Sửu", "1h - 3h");
         gioHoangDaos.add(gioHoangDao);
 
@@ -220,6 +297,78 @@ public class MonthViewActivity extends MonthViewBaseActivity implements Calendar
         gioHoangDao = new GioHoangDao(R.drawable.hoi, "Hợi", "21h - 23h");
         gioHoangDaos.add(gioHoangDao);
 
+        //Tuoi xung ngay
+        TuoiXungNgay tuoiXungNgay = new TuoiXungNgay(R.drawable.tuat, "Nhâm Thìn", "Thổ");
+        tuoiXungNgays.add(tuoiXungNgay);
+
+        tuoiXungNgay = new TuoiXungNgay(R.drawable.tuat, "Giáp Tuất", "Hoả");
+        tuoiXungNgays.add(tuoiXungNgay);
+
+        tuoiXungNgay = new TuoiXungNgay(R.drawable.dan, "Binh Dần", "Hoả");
+        tuoiXungNgays.add(tuoiXungNgay);
+
+        //Tuoi xung thang
+        TuoiXungThang tuoiXungThang = new TuoiXungThang(R.drawable.thin, "Nhâm Thìn", "Thuỷ");
+        tuoiXungThangs.add(tuoiXungThang);
+
+        tuoiXungThang = new TuoiXungThang(R.drawable.thin, "Canh Thìn", "Kim");
+        tuoiXungThangs.add(tuoiXungThang);
+
+        tuoiXungThang = new TuoiXungThang(R.drawable.tuat, "Canh Tuất", "Kim");
+        tuoiXungThangs.add(tuoiXungThang);
+
+        //Xuat hanh
+        XuatHanh xuatHanh = new XuatHanh(R.drawable.i_hythan, "Hỷ thần", "Đông Nam");
+        xuatHanhs.add(xuatHanh);
+
+        xuatHanh = new XuatHanh(R.drawable.i_taithan, "Tài thần", "Tây Bắc");
+        xuatHanhs.add(xuatHanh);
+
+        xuatHanh = new XuatHanh(R.drawable.i_hacthan, "Hạc thần", "Tây Bắc");
+        xuatHanhs.add(xuatHanh);
+
+        //Tu vi
+        TuVi tuVi = new TuVi(R.drawable.i_tuvihangngay, "Tử Vi Hằng Ngày");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_nhipsinhhoc, "Nhịp Sinh Học");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_vankhan, "Văn Khấn");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_guithiep, "Thiệp Chúc Mừng");
+        tuVis.add(tuVi);
+
+        tuVi =new TuVi(R.drawable.ic_tuvi_2019, "Tử Vi 2019");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_tuvitrondoi, "Tử Vi Trọn Đời");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_boitinhduyen, "Bói Tình Duyên");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_laban, "La Bàn");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_giaimong, "Giải Mộng");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_thuocloban, "Thước Lỗ Ban");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_cunghoangdao, "Cung Hoàng Đạo");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_xemsao, "Xem Sao");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_xemngaytot, "Xem Ngày Tốt");
+        tuVis.add(tuVi);
+
+        tuVi = new TuVi(R.drawable.i_doingay, "Đổi Ngày");
+        tuVis.add(tuVi);
 
     }
 
